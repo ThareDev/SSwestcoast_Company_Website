@@ -129,7 +129,7 @@ const Contact = () => {
               isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
             }`}
           >
-            Have a question or need a quote? We're here to help you with all your cleaning needs
+            Have a question or need a quote? We&apos;re here to help you with all your cleaning needs
           </p>
         </div>
 
@@ -212,7 +212,7 @@ const Contact = () => {
                 <div className="text-center text-white">
                   <CheckCircle size={80} className="mx-auto mb-4 animate-bounce" />
                   <h3 className="text-3xl font-black mb-2">Message Sent!</h3>
-                  <p className="text-lg">We'll get back to you soon.</p>
+                  <p className="text-lg">We&apos;ll get back to you soon.</p>
                 </div>
               </div>
             )}
