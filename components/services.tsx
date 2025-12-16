@@ -4,7 +4,7 @@ import { Home, Building2, Sparkles, Square, Sofa, Droplets, ArrowRight, Star, Ch
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -30,62 +30,48 @@ const Services = () => {
       title: 'Home Cleaning',
       shortDesc: 'Professional residential cleaning',
       fullDesc: 'Complete home cleaning services including dusting, vacuuming, mopping, and sanitizing all living spaces.',
-      features: ['Deep cleaning', 'Regular maintenance', 'Eco-friendly products', 'Flexible scheduling'],
-      color: 'from-lime-500 to-lime-600',
-      bgColor: 'bg-lime-50',
-      hoverColor: 'group-hover:bg-lime-500'
+      features: ['Deep cleaning', 'Regular maintenance', 'Eco-friendly products', 'Flexible scheduling']
     },
     {
       icon: <Building2 size={40} />,
       title: 'Office Cleaning',
       shortDesc: 'Commercial space solutions',
       fullDesc: 'Comprehensive office cleaning including workstations, meeting rooms, restrooms, and common areas.',
-      features: ['After-hours service', 'Disinfection', 'Window cleaning', 'Floor maintenance'],
-      color: 'from-blue-500 to-blue-600',
-      bgColor: 'bg-blue-50',
-      hoverColor: 'group-hover:bg-blue-500'
+      features: ['After-hours service', 'Disinfection', 'Window cleaning', 'Floor maintenance']
     },
     {
       icon: <Sparkles size={40} />,
       title: 'Deep Cleaning',
       shortDesc: 'Thorough intensive cleaning',
       fullDesc: 'Intensive cleaning service covering every corner, appliances, fixtures, and hard-to-reach areas.',
-      features: ['Carpet shampooing', 'Appliance cleaning', 'Wall washing', 'Detailed sanitation'],
-      color: 'from-purple-500 to-purple-600',
-      bgColor: 'bg-purple-50',
-      hoverColor: 'group-hover:bg-purple-500'
+      features: ['Carpet shampooing', 'Appliance cleaning', 'Wall washing', 'Detailed sanitation']
     },
     {
       icon: <Square size={40} />,
       title: 'Window Cleaning',
       shortDesc: 'Crystal clear windows',
       fullDesc: 'Expert window cleaning for residential and commercial properties, inside and out.',
-      features: ['Streak-free finish', 'High-rise capable', 'Frame cleaning', 'Screen cleaning'],
-      color: 'from-cyan-500 to-cyan-600',
-      bgColor: 'bg-cyan-50',
-      hoverColor: 'group-hover:bg-cyan-500'
+      features: ['Streak-free finish', 'High-rise capable', 'Frame cleaning', 'Screen cleaning']
     },
     {
       icon: <Sofa size={40} />,
       title: 'Furniture Cleaning',
       shortDesc: 'Upholstery care services',
       fullDesc: 'Professional furniture and upholstery cleaning to remove stains, odors, and allergens.',
-      features: ['Stain removal', 'Fabric protection', 'Odor elimination', 'Color restoration'],
-      color: 'from-orange-500 to-orange-600',
-      bgColor: 'bg-orange-50',
-      hoverColor: 'group-hover:bg-orange-500'
+      features: ['Stain removal', 'Fabric protection', 'Odor elimination', 'Color restoration']
     },
     {
       icon: <Droplets size={40} />,
       title: 'Carpet Cleaning',
       shortDesc: 'Professional carpet care',
       fullDesc: 'Deep carpet cleaning using advanced equipment and techniques for a fresh, clean finish.',
-      features: ['Steam cleaning', 'Stain treatment', 'Pet odor removal', 'Fast drying'],
-      color: 'from-green-500 to-green-600',
-      bgColor: 'bg-green-50',
-      hoverColor: 'group-hover:bg-green-500'
+      features: ['Steam cleaning', 'Stain treatment', 'Pet odor removal', 'Fast drying']
     }
   ];
+
+  const handleCardClick = (index: number) => {
+    setActiveCard(activeCard === index ? null : index);
+  };
 
   return (
     <section 
@@ -138,42 +124,59 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className={`group relative transform transition-all duration-700 ${
+              onClick={() => handleCardClick(index)}
+              className={`group relative transform transition-all duration-700 cursor-pointer ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
-              onMouseEnter={() => setHoveredCard(index)}
-              onMouseLeave={() => setHoveredCard(null)}
             >
               {/* Card Container */}
-              <div className="relative h-full bg-white rounded-3xl overflow-hidden shadow-2xl transform transition-all duration-500 hover:-translate-y-4 hover:shadow-lime-500/50">
-                {/* Gradient Background on Hover */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-0 group-hover:opacity-100 transition-opacity duration-500`}></div>
+              <div className={`relative h-full bg-white rounded-3xl overflow-hidden shadow-2xl transition-all duration-500 ${
+                activeCard === index 
+                  ? 'shadow-lime-500/50 -translate-y-4' 
+                  : 'hover:shadow-lime-500/50 hover:-translate-y-4'
+              }`}>
+                {/* Lime Green Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br from-lime-500 to-lime-600 transition-opacity duration-500 ${
+                  activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}></div>
                 
                 {/* Content Container */}
                 <div className="relative z-10 p-8 h-full flex flex-col">
                   {/* Icon Container */}
-                  <div className={`w-20 h-20 ${service.bgColor} ${service.hoverColor} rounded-2xl flex items-center justify-center mb-6 transform transition-all duration-500 group-hover:scale-110 group-hover:rotate-6 group-hover:bg-white shadow-lg`}>
-                    <div className={`text-${service.color.split('-')[1]}-500 group-hover:text-white transition-colors duration-500`}>
+                  <div className={`w-20 h-20 bg-lime-50 rounded-2xl flex items-center justify-center mb-6 transform transition-all duration-500 shadow-lg ${
+                    activeCard === index 
+                      ? 'bg-white scale-110 rotate-6' 
+                      : 'group-hover:bg-white group-hover:scale-110 group-hover:rotate-6'
+                  }`}>
+                    <div className={`transition-colors duration-500 ${
+                      activeCard === index ? 'text-lime-500' : 'text-gray-800 group-hover:text-lime-500'
+                    }`}>
                       {service.icon}
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl font-black text-black group-hover:text-white mb-3 transition-colors duration-500">
+                  <h3 className={`text-2xl font-black mb-3 transition-colors duration-500 ${
+                    activeCard === index ? 'text-white' : 'text-black group-hover:text-white'
+                  }`}>
                     {service.title}
                   </h3>
 
                   {/* Short Description (Visible by default) */}
-                  <p className={`text-gray-600 group-hover:text-white/90 mb-4 transition-all duration-500 ${
-                    hoveredCard === index ? 'opacity-0 h-0' : 'opacity-100 h-auto'
+                  <p className={`transition-all duration-500 ${
+                    activeCard === index 
+                      ? 'opacity-0 h-0 mb-0' 
+                      : 'opacity-100 h-auto mb-4 text-gray-600 group-hover:text-white/90 group-hover:opacity-0 group-hover:h-0 group-hover:mb-0'
                   }`}>
                     {service.shortDesc}
                   </p>
 
-                  {/* Full Description (Visible on hover) */}
+                  {/* Full Description (Visible on hover/active) */}
                   <div className={`transition-all duration-500 ${
-                    hoveredCard === index ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0'
+                    activeCard === index 
+                      ? 'opacity-100 max-h-96' 
+                      : 'opacity-0 max-h-0 group-hover:opacity-100 group-hover:max-h-96'
                   } overflow-hidden`}>
                     <p className="text-white/90 mb-4 leading-relaxed">
                       {service.fullDesc}
@@ -184,11 +187,13 @@ const Services = () => {
                       {service.features.map((feature, idx) => (
                         <div 
                           key={idx}
-                          className="flex items-center gap-2 text-white/80 transform transition-all duration-300"
+                          className={`flex items-center gap-2 text-white/80 transition-all duration-300 ${
+                            activeCard === index || activeCard === null
+                              ? 'translate-x-0 opacity-100' 
+                              : 'translate-x-0 opacity-100'
+                          }`}
                           style={{ 
-                            transitionDelay: `${idx * 50}ms`,
-                            transform: hoveredCard === index ? 'translateX(0)' : 'translateX(-20px)',
-                            opacity: hoveredCard === index ? 1 : 0
+                            transitionDelay: `${idx * 50}ms`
                           }}
                         >
                           <CheckCircle size={16} className="text-white flex-shrink-0" />
@@ -210,11 +215,11 @@ const Services = () => {
                       <Star 
                         key={i}
                         size={18}
-                        className={`${
-                          hoveredCard === index 
+                        className={`transition-all duration-300 ${
+                          activeCard === index 
                             ? 'text-white fill-white' 
-                            : 'text-lime-500 fill-lime-500'
-                        } transition-all duration-300`}
+                            : 'text-lime-500 fill-lime-500 group-hover:text-white group-hover:fill-white'
+                        }`}
                         style={{ transitionDelay: `${i * 50}ms` }}
                       />
                     ))}
@@ -222,15 +227,23 @@ const Services = () => {
                 </div>
 
                 {/* Decorative Corner Elements */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-white/20 to-transparent rounded-bl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-                <div className="absolute bottom-0 left-0 w-20 h-20 bg-gradient-to-tr from-white/20 to-transparent rounded-tr-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                <div className={`absolute top-0 right-0 w-20 h-20 bg-white/20 rounded-bl-3xl transition-opacity duration-500 ${
+                  activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}></div>
+                <div className={`absolute bottom-0 left-0 w-20 h-20 bg-white/20 rounded-tr-3xl transition-opacity duration-500 ${
+                  activeCard === index ? 'opacity-100' : 'opacity-0 group-hover:opacity-100'
+                }`}></div>
 
                 {/* Animated Border */}
-                <div className="absolute inset-0 rounded-3xl border-4 border-transparent group-hover:border-white/30 transition-all duration-500"></div>
+                <div className={`absolute inset-0 rounded-3xl border-4 transition-all duration-500 ${
+                  activeCard === index ? 'border-white/30' : 'border-transparent group-hover:border-white/30'
+                }`}></div>
               </div>
 
               {/* Floating Shadow Effect */}
-              <div className={`absolute -inset-2 bg-gradient-to-br ${service.color} rounded-3xl opacity-0 group-hover:opacity-20 blur-xl transition-all duration-500 -z-10`}></div>
+              <div className={`absolute -inset-2 bg-gradient-to-br from-lime-500 to-lime-600 rounded-3xl blur-xl transition-all duration-500 -z-10 ${
+                activeCard === index ? 'opacity-20' : 'opacity-0 group-hover:opacity-20'
+              }`}></div>
             </div>
           ))}
         </div>
