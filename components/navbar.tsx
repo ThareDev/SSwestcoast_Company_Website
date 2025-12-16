@@ -51,7 +51,7 @@ const Navbar = () => {
                                 priority
                             />
                         </div>
-                        <span className="text-3xl font-bold text-black">Bixol</span>
+                        <span className="text-3xl font-bold text-black">SSwestCoast</span>
                     </div>
 
                     {/* Desktop Menu */}

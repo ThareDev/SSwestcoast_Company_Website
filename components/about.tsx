@@ -29,7 +29,7 @@ const About = () => {
   useEffect(() => {
     if (isVisible) {
       const clientTarget = 10;
-      const yearsTarget = 12;
+      const yearsTarget = 4;
       const duration = 2000;
       const steps = 50;
       const clientIncrement = clientTarget / steps;
