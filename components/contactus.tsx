@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { Send, User, Mail, Phone, MessageSquare, MapPin, Clock, CheckCircle, Sparkles } from 'lucide-react';
+import { Send, User, Mail, Phone, MessageSquare, MapPin, Clock, CheckCircle, Sparkles, AlertCircle } from 'lucide-react';
 
 const Contact = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,6 +14,8 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -43,17 +45,41 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setIsError(false);
+    setErrorMessage('');
     
-    // Simulate form submission
-    setTimeout(() => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setIsSubmitting(false);
+        setIsSuccess(true);
+        setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+        
+        setTimeout(() => {
+          setIsSuccess(false);
+        }, 3000);
+      } else {
+        throw new Error(data.message || 'Failed to send message');
+      }
+    } catch (error) {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setIsError(true);
+      setErrorMessage(error instanceof Error ? error.message : 'Failed to send message. Please try again.');
       
       setTimeout(() => {
-        setIsSuccess(false);
-      }, 3000);
-    }, 1500);
+        setIsError(false);
+        setErrorMessage('');
+      }, 5000);
+    }
   };
 
   const contactInfo = [
@@ -213,6 +239,17 @@ const Contact = () => {
                   <CheckCircle size={80} className="mx-auto mb-4 animate-bounce" />
                   <h3 className="text-3xl font-black mb-2">Message Sent!</h3>
                   <p className="text-lg">We&apos;ll get back to you soon.</p>
+                </div>
+              </div>
+            )}
+
+            {/* Error Message */}
+            {isError && (
+              <div className="mb-6 bg-red-50 border-2 border-red-500 rounded-xl p-4 flex items-center gap-3 animate-fadeIn">
+                <AlertCircle className="text-red-500" size={24} />
+                <div>
+                  <h4 className="font-bold text-red-800">Error</h4>
+                  <p className="text-red-600 text-sm">{errorMessage}</p>
                 </div>
               </div>
             )}

@@ -35,7 +35,14 @@ export default function Home() {
 
   const scrollToNext = () => {
     const servicesSection = document.getElementById('services');
-    servicesSection?.scrollIntoView({ behavior: 'smooth' });
+    if (servicesSection) {
+      const offset = 80;
+      const elementPosition = servicesSection.offsetTop - offset;
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
   };
 
   return (
@@ -51,7 +58,7 @@ export default function Home() {
       <Navbar />
       
       {/* Hero Section with Scroll Indicator */}
-      <div className="relative">
+      <section id="home" className="relative">
         <Hero />
         
         {/* Animated Scroll Indicator */}
@@ -73,18 +80,18 @@ export default function Home() {
 
         {/* Lime Accent Line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-lime-500 to-transparent shadow-lg shadow-lime-500/50"></div>
-      </div>
+      </section>
 
       {/* Services Section - Black Background */}
-      <div className="relative bg-black">
+      <section id="services" className="relative bg-black">
         <Services />
         
         {/* Lime Accent Line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-lime-500 to-transparent shadow-lg shadow-lime-500/50"></div>
-      </div>
+      </section>
 
       {/* About Section with Background Pattern */}
-      <div className="relative">
+      <section id="about" className="relative">
         {/* Subtle Grid Pattern */}
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{
@@ -100,10 +107,10 @@ export default function Home() {
         
         {/* Lime Accent Line */}
         <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-lime-500 to-transparent" />
-      </div>
+      </section>
 
       {/* Portfolio Section */}
-      <div className="relative bg-black">
+      <section id="portfolio" className="relative bg-black">
         {/* Top Wave Separator - White to Black */}
         <div className="absolute top-0 left-0 right-0 overflow-hidden leading-none">
           <svg
@@ -138,29 +145,38 @@ export default function Home() {
             />
           </svg>
         </div>
-      </div>
+      </section>
 
       {/* Contact Section */}
-      <div className="relative">
+      <section id="contact" className="relative">
         {/* Gradient Background Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-white via-gray-50 to-white" />
         
         <Contact />
-        
-    
-      </div>
+      </section>
 
       {/* Footer */}
       <Footer />
 
-      {/* Floating Action Elements */}
+      {/* Floating Action Elements - Section Indicators */}
       <div className="fixed bottom-8 left-8 z-50 hidden md:flex flex-col gap-4">
-        {/* Section Indicators */}
         <div className="flex flex-col gap-2">
-          {['home', 'services', 'about', 'portfolio', 'contact'].map((section, index) => (
+          {['home', 'services', 'about', 'portfolio', 'contact'].map((section) => (
             <a
               key={section}
               href={`#${section}`}
+              onClick={(e) => {
+                e.preventDefault();
+                const element = document.getElementById(section);
+                if (element) {
+                  const offset = 80;
+                  const elementPosition = element.offsetTop - offset;
+                  window.scrollTo({
+                    top: elementPosition,
+                    behavior: 'smooth'
+                  });
+                }
+              }}
               className="group relative"
               aria-label={`Go to ${section}`}
             >

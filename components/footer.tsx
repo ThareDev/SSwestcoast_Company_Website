@@ -44,14 +44,14 @@ const Footer = () => {
             <div className="relative w-16 h-16 mx-auto mb-2">
               <Image
                 src={logo}
-                alt="SSwestcoast Logo"
+                alt="SS West Coast Logo"
                 width={64}
                 height={64}
                 className="object-contain"
                 priority
               />
             </div>
-            <span className="text-m font-black text-black">SSwestcoast</span>
+            <span className="text-xs font-black text-black">SS West Coast</span>
           </div>
         </div>
       </div>
@@ -61,7 +61,7 @@ const Footer = () => {
           {/* Column 1 - About */}
           <div className="space-y-6 transform hover:translate-x-2 transition-all duration-300">
             <h3 className="text-2xl font-black mb-6">
-              We are <span className="text-lime-500">SSwestcoast!</span>
+              We are <span className="text-lime-500">SS West Coast!</span>
             </h3>
             <p className="text-gray-400 leading-relaxed">
               We work with a passion of taking challenges and creating new ones in advertising sector.
@@ -122,8 +122,8 @@ const Footer = () => {
                   <MapPin className="text-lime-500 group-hover:text-white transition-colors" size={20} />
                 </div>
                 <div>
-                  <p className="text-white font-semibold group-hover:text-lime-500 transition-colors">30 Commercial Road</p>
-                  <p className="text-gray-400">Fratton, Australia</p>
+                  <p className="text-white font-semibold group-hover:text-lime-500 transition-colors">48A Kyle Avenue</p>
+                  <p className="text-gray-400">Bentley WA 6102, Australia</p>
                 </div>
               </div>
 
@@ -131,9 +131,12 @@ const Footer = () => {
                 <div className="w-10 h-10 bg-gray-900 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-lime-500 transition-all duration-300 group-hover:scale-110">
                   <Phone className="text-lime-500 group-hover:text-white transition-colors" size={20} />
                 </div>
-                <div>
-                  <a href="tel:1-888-452-1505" className="text-white font-semibold group-hover:text-lime-500 transition-colors block">
-                    1-888-452-1505
+                <div className="space-y-1">
+                  <a href="tel:+61411236714" className="text-white font-semibold group-hover:text-lime-500 transition-colors block">
+                    +61 411 236 714
+                  </a>
+                  <a href="tel:+61423090602" className="text-gray-400 hover:text-lime-500 transition-colors block">
+                    +61 423 090 602
                   </a>
                 </div>
               </div>
@@ -143,11 +146,11 @@ const Footer = () => {
                   <Mail className="text-lime-500 group-hover:text-white transition-colors" size={20} />
                 </div>
                 <div>
-                  <a href="mailto:envato@gmail.com" className="text-white font-semibold group-hover:text-lime-500 transition-colors block">
-                    SSwestcoast@gmail.com
+                  <a href="mailto:info@sswestcoast.com.au" className="text-white font-semibold group-hover:text-lime-500 transition-colors block">
+                    info@sswestcoast.com.au
                   </a>
-                  <a href="mailto:info@mail.com" className="text-gray-400 hover:text-lime-500 transition-colors">
-                    info@mail.com
+                  <a href="mailto:contact@sswestcoast.com" className="text-gray-400 hover:text-lime-500 transition-colors">
+                    contact@sswestcoast.com
                   </a>
                 </div>
               </div>
