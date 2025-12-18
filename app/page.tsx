@@ -8,6 +8,7 @@ import Footer from '@/components/footer';
 import Contact from '@/components/contactus';
 import Portfolio from '@/components/portfolio';
 import { ChevronDown } from 'lucide-react';
+import StructuredData from '@/components/StructuredData';
 
 export default function Home() {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -46,7 +47,9 @@ export default function Home() {
   };
 
   return (
+    
     <div className="min-h-screen bg-white relative">
+       <StructuredData />
       {/* Scroll Progress Bar */}
       <div className="fixed top-0 left-0 w-full h-1 bg-gray-200 z-[60]">
         <div 

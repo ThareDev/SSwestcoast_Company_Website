@@ -1,6 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
-import { Home, Building2, Sparkles, Square, Sofa, Droplets, ArrowRight, Star, CheckCircle } from 'lucide-react';
+import { Home, Building2, Sparkles, Square, Sofa, Droplets, Car, ArrowRight, Star, CheckCircle } from 'lucide-react';
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,6 +66,13 @@ const Services = () => {
       shortDesc: 'Professional carpet care',
       fullDesc: 'Deep carpet cleaning using advanced equipment and techniques for a fresh, clean finish.',
       features: ['Steam cleaning', 'Stain treatment', 'Pet odor removal', 'Fast drying']
+    },
+    {
+      icon: <Car size={40} />,
+      title: 'Car Detailing',
+      shortDesc: 'Complete vehicle care',
+      fullDesc: 'Professional auto detailing services including interior and exterior cleaning, waxing, and protection.',
+      features: ['Interior vacuuming', 'Exterior wash & wax', 'Engine cleaning', 'Paint protection']
     }
   ];
 
