@@ -136,7 +136,7 @@ const Hero = () => {
                 <div className="relative z-10 flex items-center gap-2 md:gap-3">
                   <Award className="text-lime-500 group-hover:text-white group-hover:rotate-12 transition-all" size={24} />
                   <div>
-                    <p className="text-2xl md:text-3xl font-black text-black group-hover:text-white transition-colors">15+</p>
+                    <p className="text-2xl md:text-3xl font-black text-black group-hover:text-white transition-colors">4+</p>
                     <p className="text-xs md:text-sm text-gray-600 group-hover:text-white/90 font-semibold transition-colors">Years Experience</p>
                   </div>
                 </div>

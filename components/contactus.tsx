@@ -82,24 +82,24 @@ const Contact = () => {
     }
   };
 
-  const contactInfo = [
+const contactInfo = [
     {
       icon: <MapPin size={28} />,
       title: 'Visit Us',
-      content: '380 Albert St, Melbourne',
-      subContent: 'Australia'
+      content: '48A Kyle Avenue, Bentley 6102',
+      subContent: 'Western Australia'
     },
     {
       icon: <Phone size={28} />,
       title: 'Call Us',
-      content: '(+123) 5462 3257',
-      subContent: '1-888-452-1505'
+      content: '+61 411 236 714',
+      subContent: '+61 423 090 602'
     },
     {
       icon: <Mail size={28} />,
       title: 'Email Us',
-      content: 'envato@gmail.com',
-      subContent: 'info@mail.com'
+      content: 'info@sswestcoast.com.au',
+      subContent: 'contact@sswestcoast.com.au'
     },
     {
       icon: <Clock size={28} />,

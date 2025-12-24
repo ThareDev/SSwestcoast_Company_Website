@@ -1,6 +1,20 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
 import { Sparkles, Home, Building2, Square, Sofa, Droplets, Layout, Eye } from 'lucide-react';
+import Image from 'next/image';
+import img1 from '@/public/portfolio/img1.jpeg'
+import img2 from '@/public/portfolio/img2.jpeg'
+import img3 from '@/public/portfolio/img3.jpeg'
+import img4 from '@/public/portfolio/img4.jpeg'
+import img5 from '@/public/portfolio/img5.jpeg'
+import img6 from '@/public/portfolio/img6.jpeg'
+import img7 from '@/public/portfolio/img7.jpeg'
+import img8 from '@/public/portfolio/img8.jpeg'
+import img9 from '@/public/portfolio/img9.jpeg'
+import img10 from '@/public/portfolio/img10.jpeg'
+import img11 from '@/public/portfolio/img11.jpeg'
+import img12 from '@/public/portfolio/img12.jpeg'
+
 
 const Portfolio = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -35,29 +49,19 @@ const Portfolio = () => {
     { id: 'carpet', name: 'Carpet Cleaning', icon: <Droplets size={20} /> }
   ];
 
-  const portfolioItems = [
-    { id: 1, category: 'home', image: 'https://images.unsplash.com/photo-1600210492493-0946911123ea?w=800', title: 'Modern Living Room', alt: 'Clean modern living room' },
-    { id: 2, category: 'home', image: 'https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800', title: 'Kitchen Cleaning', alt: 'Sparkling clean kitchen' },
-    { id: 3, category: 'home', image: 'https://images.unsplash.com/photo-1522771739844-6a9f6d5f14af?w=800', title: 'Bedroom Makeover', alt: 'Fresh bedroom cleaning' },
-    { id: 4, category: 'home', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=800', title: 'Bathroom Shine', alt: 'Spotless bathroom' },
-    { id: 5, category: 'home', image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800', title: 'Full House Clean', alt: 'Complete house cleaning' },
-    { id: 6, category: 'office', image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=800', title: 'Corporate Office', alt: 'Professional office cleaning' },
-    { id: 7, category: 'office', image: 'https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800', title: 'Meeting Room', alt: 'Clean meeting space' },
-    { id: 8, category: 'office', image: 'https://images.unsplash.com/photo-1524758631624-e2822e304c36?w=800', title: 'Open Workspace', alt: 'Modern workspace cleaning' },
-    { id: 9, category: 'office', image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800', title: 'Reception Area', alt: 'Welcoming reception' },
-    { id: 10, category: 'window', image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800', title: 'High Rise Windows', alt: 'Crystal clear windows' },
-    { id: 11, category: 'window', image: 'https://images.unsplash.com/photo-1580587771525-78b9dba3b914?w=800', title: 'Office Glass', alt: 'Spotless office windows' },
-    { id: 12, category: 'window', image: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?w=800', title: 'Home Windows', alt: 'Residential window cleaning' },
-    { id: 13, category: 'window', image: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=800', title: 'Storefront Glass', alt: 'Commercial windows' },
-    { id: 14, category: 'furniture', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=800', title: 'Leather Sofa', alt: 'Clean leather furniture' },
-    { id: 15, category: 'furniture', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800', title: 'Fabric Couch', alt: 'Fresh fabric upholstery' },
-    { id: 16, category: 'furniture', image: 'https://images.unsplash.com/photo-1604709177225-055f99402ea3?w=800', title: 'Dining Chairs', alt: 'Spotless dining set' },
-    { id: 17, category: 'furniture', image: 'https://images.unsplash.com/photo-1505843490538-5133c6c7d0e1?w=800', title: 'Office Chairs', alt: 'Professional furniture cleaning' },
-    { id: 18, category: 'carpet', image: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=800', title: 'Living Room Carpet', alt: 'Deep cleaned carpet' },
-    { id: 19, category: 'carpet', image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800', title: 'Office Carpet', alt: 'Commercial carpet cleaning' },
-    { id: 20, category: 'carpet', image: 'https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=800', title: 'Area Rugs', alt: 'Professional rug cleaning' },
-    { id: 21, category: 'carpet', image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800', title: 'Stair Carpet', alt: 'Stairway carpet cleaning' },
-    { id: 22, category: 'carpet', image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800', title: 'Bedroom Carpet', alt: 'Fresh bedroom carpet' }
+const portfolioItems = [
+    { id: 1, category: 'home', image: img1, title: 'Modern Kitchen & Dining', alt: 'Clean modern kitchen with dining area' },
+    { id: 2, category: 'home', image: img2, title: 'Bedroom Deep Clean', alt: 'Fresh and clean bedroom space' },
+    { id: 3, category: 'home', image: img3, title: 'Bathroom Sanitization', alt: 'Spotless bathroom with modern fixtures' },
+    { id: 4, category: 'home', image: img4, title: 'Shower & Plumbing Clean', alt: 'Clean bathroom shower area' },
+    { id: 5, category: 'home', image: img5, title: 'Kitchen Cabinet Cleaning', alt: 'Traditional kitchen deep clean' },
+    { id: 6, category: 'home', image: img6, title: 'Kitchen Counter Refresh', alt: 'Sparkling clean kitchen counters' },
+    { id: 7, category: 'home', image: img7, title: 'Modern Kitchen Maintenance', alt: 'Contemporary kitchen cleaning' },
+    { id: 8, category: 'home', image: img8, title: 'Living Space Organization', alt: 'Organized bedroom with wardrobes' },
+    { id: 9, category: 'furniture', image: img9, title: 'Upholstery Cleaning', alt: 'Fresh cleaned sofas and furniture' },
+    { id: 10, category: 'office', image: img10, title: 'Commercial Facility Clean', alt: 'Professional facility cleaning' },
+    { id: 11, category: 'office', image: img11, title: 'Classroom & Office Space', alt: 'Clean organized classroom environment' },
+    { id: 12, category: 'home', image: img12, title: 'Bedroom Makeover', alt: 'Tidy bedroom with city view' }
   ];
 
   const filteredItems = activeFilter === 'all' 
@@ -164,7 +168,7 @@ const Portfolio = () => {
               >
                 {/* Image Container */}
                 <div className="relative h-64 sm:h-80 overflow-hidden">
-                  <img
+                  <Image
                     src={item.image}
                     alt={item.alt}
                     className={`w-full h-full object-cover transition-all duration-700 ${
