@@ -138,7 +138,7 @@ const Navbar = () => {
                         <div className="flex items-center gap-3 sm:gap-4">
                             {/* Social Icons - Hidden on mobile */}
                             <div className="hidden md:flex gap-3 lg:gap-4">
-                                <a href="#" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
+                                <a href="https://www.facebook.com/share/1DETwq3rjF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
                                     <Facebook size={18} />
                                 </a>
                                 <a href="#" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
@@ -147,7 +147,7 @@ const Navbar = () => {
                                 <a href="#" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
                                     <Linkedin size={18} />
                                 </a>
-                                <a href="#" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
+                                <a href="https://www.instagram.com/sswestcoast.cleaning?igsh=MThwcW0zZWFoZDJvNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="text-gray-600 hover:text-lime-500 cursor-pointer transition-all duration-300 hover:scale-110">
                                     <Instagram size={18} />
                                 </a>
                             </div>
@@ -254,7 +254,7 @@ const Navbar = () => {
 
                     {/* Social Icons */}
                     <div className="flex gap-3 pt-4 border-t border-gray-200">
-                        <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <a href="https://www.facebook.com/share/1DETwq3rjF/?mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
                             <Facebook size={18} />
                         </a>
                         <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
@@ -263,7 +263,7 @@ const Navbar = () => {
                         <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
                             <Linkedin size={18} />
                         </a>
-                        <a href="#" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
+                        <a href="https://www.instagram.com/sswestcoast.cleaning?igsh=MThwcW0zZWFoZDJvNQ%3D%3D&utm_source=qr" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gray-100 hover:bg-lime-500 text-gray-600 hover:text-white rounded-lg flex items-center justify-center transition-all duration-300 hover:scale-110">
                             <Instagram size={18} />
                         </a>
                     </div>
